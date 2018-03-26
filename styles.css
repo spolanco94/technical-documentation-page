@@ -1,0 +1,8 @@
+body {
+    background-color: blue;
+}
+
+#navbar {
+    display: grid;
+    position: fixed;
+}
