@@ -1,8 +1,69 @@
 body {
-    background-color: blue;
+    background-color: #e4e5e6;
 }
 
-#navbar {
+.container {
     display: grid;
+    grid-template-areas: 
+    "nav header header"
+    "nav content content"
+    "nav footer footer";
+    
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
+    grid-gap: 10px;
+    height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-areas:
+      "header"
+      "nav"
+      "content"
+      "footer";
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(75px, auto) 1fr auto;
+  }
+
+  nav, aside {
+    margin: 0;
+  }
+}
+
+.docs-header {
+    grid-area: header;
+}
+
+.left {
+    grid-area: nav;
+    margin-left: 0.5rem;
     position: fixed;
+}
+
+.right {
+    grid-area: content;
+}
+
+.right header {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.left ul {
+    list-style-type: none;
+    padding-left: 0;
+    height: 100%;
+}
+
+.left li {
+    line-height: 10vh;
+    border: 3px solid #000;
+    border-left: none;
+}
+
+.right code {
+    margin: auto;
+    text-align: center;
 }
